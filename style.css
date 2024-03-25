@@ -1,5 +1,5 @@
 /* -------------Обнуление-----------------*/
-html{
+html {
   scroll-behavior: smooth;
 }
 *,
@@ -32,9 +32,13 @@ h6 {
   font-size: inherit;
 }
 
-html,
+/* html{
+overflow: scroll;
+overflow-x: hidden;
+}  */
+
 body {
-  height: 100%;
+  height: 100vw;
   line-height: 1;
   font-family: Inter;
   background-color: grey;
@@ -42,9 +46,13 @@ body {
 
 /* -------------------Header--------------------------------- */
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 .wrapper {
   min-height: 100%;
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   background-color: white;
 }
@@ -78,6 +86,10 @@ body {
   align-items: center;
 }
 
+.burger__menu {
+  display: none;
+}
+
 .menu__item {
   font-weight: 400;
   font-size: 20px;
@@ -101,7 +113,6 @@ body {
   color: red;
   border-bottom: solid 2px white;
   cursor: pointer;
-
 }
 
 /* -----------------Welcome----------------------- */
@@ -115,7 +126,8 @@ body {
 }
 
 .welcome-title {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   text-align: center;
   padding: 35px 40px;
   font-family: Forum;
@@ -171,14 +183,17 @@ body {
 }
 
 .about__items {
-  margin: 20px -12.5px 35px;
+  margin: 20px 0px 35px;
   display: flex;
   align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
-.about__item-img {
-  flex: 0 1 33.333333%;
-  margin: 0 12.5px;
+.closed__picture,
+.arrow,
+.slide__adaptive {
+  display: none;
 }
 
 .about__slide {
@@ -325,7 +340,7 @@ body {
 .favorite__btn:hover {
   color: red;
   background: black;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .favorite-content {
@@ -419,7 +434,8 @@ body {
 }
 
 .coffe__column {
-  width: 438px;
+  max-width: 438px;
+  width: 100%;
 }
 
 .coffe__item-price {
@@ -450,6 +466,7 @@ body {
   margin-top: 60px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .contact__left-column {
@@ -486,8 +503,6 @@ body {
 .contact__personal-title {
   margin-bottom: 20px;
 }
-
-/* -----------------------------Cards-------------------------- */
 
 .cards {
   padding: 20px 0px 40px;
@@ -612,6 +627,7 @@ body {
 .digital__body {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .get__card > *:not(:last-child) {
@@ -624,7 +640,7 @@ body {
 .get__card-property:hover {
   color: red;
   background-color: #000;
-  cursor: pointer
+  cursor: pointer;
 }
 
 /* -----------------footer--------------- */
@@ -684,7 +700,8 @@ body {
   border-bottom: 1px solid white;
   bottom: -30px;
   left: 0px;
-  width: 1400px;
+  width: 100%;
+
   height: 0px;
 }
 
@@ -714,6 +731,147 @@ body {
   height: 100px;
 }
 
-.menu__item-link{
+.menu__item-link {
   scroll-behavior: smooth;
+}
+
+/* ------------------add adaptive in the site ---------------------- */
+
+@media (max-width: 1253px) {
+  .favorites__column-row {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .favorites__column {
+    margin: 40px auto;
+  }
+
+  .contacts-body {
+    display: block;
+  }
+
+  .cards__form {
+    margin: 60px auto 20px;
+  }
+
+  .get__card {
+    margin: 0px auto;
+    max-width: 600px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .get__card-subtitle {
+    text-align: center;
+  }
+
+  .favorites__items {
+    justify-content: center;
+  }
+
+  .favorites-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1040px) {
+  .menu {
+    display: none;
+  }
+
+  .burger__menu {
+    display: block;
+    margin-left: 40px;
+  }
+
+  .coffe__rigth-column {
+    padding-left: 30px;
+  }
+
+  .coffe__body {
+    flex-wrap: wrap;
+  }
+
+  .coffe__left-column {
+    margin-bottom: 40px;
+  }
+
+  .coffe__rigth-column {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+.contact__map {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 982px) and (min-width: 768px) {
+  .about__item-img {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome {
+    background-image: url(/images/WelcomeWithAdaptive.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+  }
+
+  .closed {
+    display: none;
+  }
+
+  .arrow,
+  .slide__adaptive {
+    display: block;
+  }
+
+  .about-text {
+    margin-bottom: 20px;
+  }
+
+  .about__slide {
+    margin-top: 25px;
+  }
+
+  .about__items {
+    margin: 0 auto;
+    gap: 0px;
+    max-width: 615px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .favorites__column {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .favorites__items,
+  .favorites__column-row > *:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 764px) {
+  .contact__map-img {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 630px) and (max-width: 756px) {
+  .favorites__items > *:not(:last-child) {
+    margin-right: 20px;
+  }
 }
